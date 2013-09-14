@@ -1,0 +1,10 @@
+{
+  "name": "paste-to-phone",
+  "version": "0.1.0",
+  "dependencies": {
+    "express":  "*"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}
