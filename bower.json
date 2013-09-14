@@ -1,0 +1,10 @@
+{
+  "name": "paste-to-phone",
+  "version": "0.1.0",
+  "dependencies": {
+    "bootstrap": "*",
+    "jquery": "~2.0",
+    "backbone": "~1.0.0",
+    "modernizr": "~2.6.2"
+  }
+}
