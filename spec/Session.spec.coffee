@@ -14,16 +14,16 @@ describe 'Session', ->
 
       @session.addClient @firstMessageStream
 
-    it 'should send null to new client', ->
-      expect(@firstMessageStream.write).toHaveBeenCalledWith 'null'
+    it 'should send client count to new client', ->
+      expect(@firstMessageStream.write).toHaveBeenCalledWith '1'
 
-    it 'should send null to next client and first client', ->
+    it 'should send client count to next client and first client', ->
       @secondMessageStream = new events.EventEmitter
       @secondMessageStream.write = jasmine.createSpy()
       @session.addClient @secondMessageStream
 
-      expect(@firstMessageStream.write).toHaveBeenCalledWith 'null'
-      expect(@secondMessageStream.write).toHaveBeenCalledWith 'null'
+      expect(@firstMessageStream.write).toHaveBeenCalledWith '2'
+      expect(@secondMessageStream.write).toHaveBeenCalledWith '2'
 
 
     it 'should send data to all clients other than sender', ->

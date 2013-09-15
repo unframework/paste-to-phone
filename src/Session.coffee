@@ -13,6 +13,6 @@ class Session
         if otherClient isnt client
           otherClient.write message
 
-    client.write JSON.stringify(null) for client in @streamList
+    client.write JSON.stringify(@streamList.length) for client in @streamList
 
 module.exports = Session
