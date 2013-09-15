@@ -14,6 +14,15 @@ Router = Backbone.Router.extend
     sessionView = new SessionView
       model: model
 
+    $('body > .container').append sessionView.el
+
+    # clean up before next display
+    setTimeout =>
+      @once 'route', ->
+        model.close()
+        sessionView.$el.remove()
+    , 0
+
 $ ->
   router = new Router
   Backbone.history.start()
