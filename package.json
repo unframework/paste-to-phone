@@ -4,7 +4,12 @@
   "dependencies": {
     "express": "*",
     "jade": "*",
-    "coffee-script": "*"
+    "coffee-script": "*",
+    "connect-coffee-script": "*",
+    "websocket-driver": "*"
+  },
+  "devDependencies": {
+    "jasmine-node": "*"
   },
   "engines": {
     "node": ">=0.10"
