@@ -4,7 +4,6 @@
   "dependencies": {
     "express": "*",
     "jade": "*",
-    "coffee-script": "*",
     "connect-coffee-script": "*",
     "websocket-driver": "*"
   },
