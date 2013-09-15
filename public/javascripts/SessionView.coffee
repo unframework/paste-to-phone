@@ -2,8 +2,8 @@ SessionView = Backbone.View.extend
   el: '<div class="session"></div>'
 
   initialize: ->
-    @$a = $('<a href=""></a>').appendTo @el
-    @$img = $('<h2><img /></h2>').appendTo(@el).find('img')
+    @$a = $('<h2><a href=""></a></h2>').appendTo(@el).find 'a'
+    @$img = $('<img />').appendTo(@el)
 
     @render()
 
