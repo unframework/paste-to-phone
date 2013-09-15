@@ -3,8 +3,6 @@ class Session
   constructor: ->
     @streamList = []
 
-    console.log 'session created'
-
   addClient: (client) ->
     @streamList.push client
 

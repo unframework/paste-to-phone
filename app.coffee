@@ -3,7 +3,6 @@ express      = require('express')
 http         = require('http')
 path         = require('path')
 routes       = require('./routes')
-user         = require('./routes/user')
 websocket    = require('websocket-driver')
 
 Session = require './src/Session'
@@ -35,7 +34,7 @@ app.use express.static(path.join(__dirname, 'public_cache'))
 # development only
 app.use express.errorHandler()  if app.get('env') is 'development'
 app.get '/', routes.index
-app.get '/users', user.list
+
 server = http.createServer(app)
 server.listen app.get('port'), ->
   console.log 'Express server listening on port ' + app.get('port')
