@@ -26,9 +26,11 @@ app.use app.router
 
 app.use coffeescript
   src: __dirname + '/public'
+  dest: __dirname + '/public_cache'
   bare: true
 
 app.use express.static(path.join(__dirname, 'public'))
+app.use express.static(path.join(__dirname, 'public_cache'))
 
 # development only
 app.use express.errorHandler()  if app.get('env') is 'development'
