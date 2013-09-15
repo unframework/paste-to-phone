@@ -5,4 +5,9 @@ SessionView = Backbone.View.extend
     @render()
 
   render: ->
-    @$el.text "Session key is #{ @model.get 'key' }"
+    url = "#{ window.baseUrl }#session/#{ encodeURIComponent @model.get('key') }"
+
+    @$('a').attr('href', url)
+      .text url
+
+    @$('img').attr 'src', "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{ encodeURIComponent url }&choe=UTF-8"

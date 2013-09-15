@@ -12,5 +12,8 @@ html
     script(src="javascripts/SessionView.js")
     script(src="javascripts/Router.js")
 
+    script
+      window.baseUrl = !{ JSON.stringify('http://localhost:3000/') };
+
   body
     block content
