@@ -25,7 +25,6 @@ describe 'Session', ->
       expect(@firstMessageStream.write).toHaveBeenCalledWith '2'
       expect(@secondMessageStream.write).toHaveBeenCalledWith '2'
 
-
     it 'should send data to all clients other than sender', ->
       @secondMessageStream = new events.EventEmitter
       @secondMessageStream.write = jasmine.createSpy 'Second Client'
@@ -40,3 +39,16 @@ describe 'Session', ->
       expect(@firstMessageStream.write).not.toHaveBeenCalledWith 'Hello 1234'
       expect(@secondMessageStream.write).toHaveBeenCalledWith 'Hello 1234'
       expect(@thirdMessageStream.write).toHaveBeenCalledWith 'Hello 1234'
+
+    it 'should clean up on disconnect', ->
+      @secondMessageStream = new events.EventEmitter
+      @secondMessageStream.write = jasmine.createSpy 'Second Client'
+      @session.addClient @secondMessageStream
+
+      @secondMessageStream.emit 'end'
+
+      @thirdMessageStream = new events.EventEmitter
+      @thirdMessageStream.write = jasmine.createSpy 'Third Client'
+      @session.addClient @thirdMessageStream
+
+      expect(@thirdMessageStream.write).toHaveBeenCalledWith '2'

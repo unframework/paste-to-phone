@@ -11,6 +11,10 @@ class Session
         if otherClient isnt client
           otherClient.write message
 
+    client.on 'end', (message) =>
+      clientIndex = @streamList.indexOf client
+      @streamList.splice clientIndex, 1
+
     client.write JSON.stringify(@streamList.length) for client in @streamList
 
 module.exports = Session
