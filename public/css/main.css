@@ -19,18 +19,18 @@ html, body {
     z-index: 2;
     top: 50%;
     left: 50%;
-    margin-top: -300px;
-    margin-left: -300px;
+    margin-top: -400px;
+    margin-left: -400px;
 
     opacity: 1;
     background: #ff0;
 
-    width: 600px;
-    height: 600px;
-    line-height: 600px;
+    width: 800px;
+    height: 800px;
+    line-height: 800px;
     text-align: center;
 
-    border-radius: 300px;
+    border-radius: 400px;
 
     font-size: 200%;
 }
@@ -44,7 +44,13 @@ html, body {
 
 .session.connected .connection-message {
     opacity: 0;
-    transition: opacity 0.5s;
+    margin-top: -100px;
+    margin-left: -100px;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 100px;
+    transition: all 0.6s;
     pointer-events: none;
 }
 
@@ -68,4 +74,5 @@ html, body {
     left: 210px;
     right: 0px;
     bottom: 0;
+    font-size: 120%;
 }
