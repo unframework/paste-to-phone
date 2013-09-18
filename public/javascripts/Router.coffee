@@ -14,7 +14,7 @@ Router = Backbone.Router.extend
     sessionView = new SessionView
       model: model
 
-    $('body > .container').append sessionView.el
+    $('body').append sessionView.el
 
     # clean up before next display
     setTimeout =>

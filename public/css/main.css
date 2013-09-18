@@ -1,0 +1,55 @@
+
+html, body {
+    height: 100%;
+}
+
+.session {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.session .connection-message {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+
+    opacity: 1;
+    background: #ff0;
+
+    width: 600px;
+    height: 600px;
+    line-height: 600px;
+    text-align: center;
+
+    border-radius: 300px;
+
+    font-size: 200%;
+}
+
+.session.has-peer {
+    height: 200px;
+    width: 600px;
+
+    transition: width 0.5s, height 0.5s;
+}
+
+.session.connected .connection-message {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.session .qr-code {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
