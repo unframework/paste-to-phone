@@ -1,3 +1,4 @@
 {
+    "baseUrl": "http://paste-to-phone.jit.su/",
     "socketBaseUrl": "ws://paste-to-phone.jit.su"
 }
