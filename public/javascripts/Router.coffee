@@ -5,7 +5,7 @@ Router = Backbone.Router.extend
     'session/:sessionKey': 'session'
 
   index: ->
-    @navigate 'session/' + 'newSessionKey'
+    @navigate 'session/' + 'newSessionKey', true
 
   session: (sessionKey) ->
     model = new Session
