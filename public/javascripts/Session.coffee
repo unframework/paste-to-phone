@@ -6,7 +6,7 @@ Session = Backbone.Model.extend
   initialize: ->
     @isConnected = false
     @clientCount = 0
-    @socket = new WebSocket('ws://localhost:3000/session/' + encodeURIComponent @get 'key')
+    @socket = new WebSocket(window.socketUrl + encodeURIComponent @get 'key')
     @text = ''
 
     @socket.onopen = (event) =>

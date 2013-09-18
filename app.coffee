@@ -22,7 +22,7 @@ app.set 'views', __dirname + '/views'
 app.set 'view engine', 'jade'
 
 app.locals
-  baseUrl: config.baseUrl
+  socketUrl: config.socketBaseUrl + SESSION_URL_PREFIX
 
 app.use express.favicon()
 app.use express.logger('dev')
