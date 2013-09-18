@@ -5,7 +5,10 @@ Router = Backbone.Router.extend
     'session/:sessionKey': 'session'
 
   index: ->
-    @navigate 'session/' + 'newSessionKey', true
+    BASE58_CHARS = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+    sessionKey = (BASE58_CHARS[Math.floor Math.random() * BASE58_CHARS.length] for i in [1..10]).join ''
+
+    @navigate 'session/' + encodeURIComponent(sessionKey), true
 
   session: (sessionKey) ->
     model = new Session
