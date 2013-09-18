@@ -16,6 +16,7 @@
     "node": ">=0.10"
   },
   "scripts": {
-    "postinstall": "bower install"
-  }
+    "start": "coffee app.coffee"
+  },
+  "subdomain": "paste-to-phone"
 }
