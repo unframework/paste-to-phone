@@ -1,11 +1,14 @@
 coffeescript = require('connect-coffee-script')
 express      = require('express')
 http         = require('http')
+fs           = require('fs')
 path         = require('path')
 routes       = require('./routes')
 websocket    = require('websocket-driver')
 
 Session = require './src/Session'
+
+config = JSON.parse(fs.readFileSync __dirname + "/config.#{ process.env.NODE_ENV or 'dist' }.json")
 
 SESSION_URL_PREFIX = '/session/'
 
@@ -17,6 +20,9 @@ app = express()
 app.set 'port', process.env.PORT or 3000
 app.set 'views', __dirname + '/views'
 app.set 'view engine', 'jade'
+
+app.locals
+  baseUrl: config.baseUrl
 
 app.use express.favicon()
 app.use express.logger('dev')
@@ -36,8 +42,7 @@ app.use express.errorHandler()  if app.get('env') is 'development'
 app.get '/', routes.index
 
 server = http.createServer(app)
-server.listen app.get('port'), ->
-  console.log 'Express server listening on port ' + app.get('port')
+server.listen app.get('port')
 
 server.on 'upgrade', (request, socket, body) ->
   if request.url.indexOf(SESSION_URL_PREFIX) is 0
