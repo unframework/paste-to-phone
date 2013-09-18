@@ -2,6 +2,8 @@
   "name": "paste-to-phone",
   "version": "0.1.0",
   "dependencies": {
+    "coffee-script": "*",
+    "bower": "*",
     "express": "*",
     "jade": "*",
     "connect-coffee-script": "*",
@@ -12,5 +14,8 @@
   },
   "engines": {
     "node": ">=0.10"
+  },
+  "scripts": {
+    "postinstall": "bower install"
   }
 }
