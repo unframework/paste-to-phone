@@ -16,7 +16,7 @@ html, body {
 
 .session .connection-message {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 50%;
     left: 50%;
     margin-top: -300px;
@@ -45,11 +45,27 @@ html, body {
 .session.connected .connection-message {
     opacity: 0;
     transition: opacity 0.5s;
+    pointer-events: none;
 }
 
 .session .qr-code {
+    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
+}
+
+.session .text-entry {
+    display: none;
+}
+
+.session.has-peer .text-entry {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    top: 0;
+    left: 210px;
+    right: 0px;
+    bottom: 0;
 }

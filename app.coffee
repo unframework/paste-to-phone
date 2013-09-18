@@ -58,6 +58,13 @@ server.on 'upgrade', (request, socket, body) ->
 
       driver.start()
 
+      # close driver stream on error and timeout
+      socket.on 'error', ->
+        driver.io.end()
+
+      socket.on 'timeout', ->
+        driver.io.end()
+
       session = sessionMap[sessionId]
 
       if not session

@@ -7,6 +7,7 @@ Session = Backbone.Model.extend
     @isConnected = false
     @clientCount = 0
     @socket = new WebSocket('ws://localhost:3000/session/' + encodeURIComponent @get 'key')
+    @text = ''
 
     @socket.onopen = (event) =>
       @isConnected = true
@@ -16,13 +17,23 @@ Session = Backbone.Model.extend
       data = JSON.parse event.data
 
       if typeof data is 'number'
-        console.log "client count", data
-
         @clientCount = data
         @trigger 'client'
+
+      if typeof data is 'string'
+        # @todo encrypt/decrypt
+        @text = data
+        @trigger 'text'
 
     @socket.onclose = (event) =>
       @isConnected = false
       @trigger 'disconnect'
+
+  updateText: (text) ->
+    if not @isConnected
+      throw 'not connected'
+
+    @text = text
+    @socket.send JSON.stringify(@text)
 
   close: ->
